@@ -1,5 +1,5 @@
 require 'simplecov'
-SimpleCov.start
+# SimpleCov.start
 require 'require_all'
 require 'pry'
 require_all 'lib'
