@@ -10,5 +10,5 @@ I want to keep track of my score in the bowling game
 
   Scenario: A game with one spare
   Given I have created a new bowling game
-  When I roll a game with one spare with bonus 4
+  When I roll a game of one spare with a bonus 4
   Then my score should be 18
