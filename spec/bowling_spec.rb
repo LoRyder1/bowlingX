@@ -5,6 +5,11 @@ describe 'Bowling Game' do
     rolls.times {subject.roll(pins)}
   end
 
+  def score_spare
+    subject.roll 5
+    subject.roll 5
+  end
+
   describe '#roll' do
 
     it 'is a method defined in Bowling Game' do
@@ -27,8 +32,7 @@ describe 'Bowling Game' do
   end
 
   it 'a game with one spare' do
-    subject.roll 5
-    subject.roll 5
+    score_spare
     subject.roll 4
     roll_many 17,0
     expect(subject.score).to eq 18
