@@ -5,8 +5,20 @@ describe 'Bowling Game' do
     rolls.times {subject.roll(pins)}
   end
 
-  it 'a gutter game results in a zero' do
-    roll_many 20, 0
-    expect(@game.score).to eq 0
+  describe '#roll' do
+
+    it 'is a method defined in Bowling Game' do
+      expect(BowlingGame.method_defined?(:roll)).to eq true
+    end
+
+    it 'takes one argument' do
+      expect(subject.method(:roll).arity).to eq 1
+    end
   end
-end
+
+
+  it 'a gutter game results in zero' do
+    roll_many 20,0
+    expect(subject.score).to eq 0
+  end
+ end

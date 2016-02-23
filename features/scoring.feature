@@ -7,3 +7,8 @@ I want to keep track of my score in the bowling game
   Given I have created a new bowling game
   When I roll a gutter game
   Then my score should be 0
+
+  Scenario: A game with one spare
+  Given I have created a new bowling game
+  When I roll a game with one spare with bonus 4
+  Then my score should be 18
