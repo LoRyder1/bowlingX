@@ -26,8 +26,7 @@ describe 'Bowling Game' do
     expect(subject.score).to eq 20
   end
 
-
-  xit 'a game with one spare' do
+  it 'a game with one spare' do
     subject.roll 5
     subject.roll 5
     subject.roll 4

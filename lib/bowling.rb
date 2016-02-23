@@ -19,7 +19,6 @@ class BowlingGame
         normal_score
       end
     end
-    # @total = @rolls.reduce(:+)
     return @total
   end
 
@@ -29,11 +28,12 @@ class BowlingGame
   end
 
   def spare?
-    false
+    @roll + @next_roll == 10
   end
 
   def score_spare
-    
+    @total += 10 + @rolls[@current_roll + 2]
+    @current_roll += 2
   end
 
   def normal_score
