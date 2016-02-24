@@ -106,7 +106,17 @@ describe 'Bowling Game' do
       subject.send(:score_strike)
       expect(get_var "@total").to eq 27
     end
+
+    it 'current roll is incremented by 1' do
+      set_var "@roll_after_next", 9; set_var "@next_roll", 8      
+      subject.send(:score_strike)
+      expect(get_var "@current_roll").to eq 1
+    end
   end
+
+  # describe '#score_spare' do
+
+  #   it ''
 
   describe 'complete games' do
 
