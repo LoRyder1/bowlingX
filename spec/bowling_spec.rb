@@ -127,6 +127,15 @@ describe 'Bowling Game' do
     end
   end
 
+  describe '#normal_score' do
+
+    it 'properly score a normal frame' do
+      set_var "@roll", 3; set_var "@next_roll", 5
+      subject.send(:normal_score)
+      expect(get_var "@total").to eq 8
+    end
+  end
+
   describe 'complete games' do
 
     it 'a gutter game results in zero' do
