@@ -134,6 +134,12 @@ describe 'Bowling Game' do
       subject.send(:normal_score)
       expect(get_var "@total").to eq 8
     end
+
+    it 'current roll is incremented by 2' do
+      set_var "@roll", 2; set_var "@next_roll", 3
+      subject.send(:normal_score)
+      expect(get_var "@current_roll").to eq 2
+    end
   end
 
   describe 'complete games' do
