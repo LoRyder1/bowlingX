@@ -169,9 +169,14 @@ describe 'Bowling Game' do
       expect(subject.score).to eq 26
     end
 
-    it 'a perfect game of all strikes' do
+    it 'a perfect game of 4 strikes' do
       roll_many 4,10
-      expect(subject.score).to eq 200
+      expect(subject.score).to eq 60
+    end
+
+    it 'a perfect game of 20 strikes' do
+      roll_many 12,10
+      expect(subject.score).to eq 300
     end
   end
 end

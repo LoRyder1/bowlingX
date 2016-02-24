@@ -47,8 +47,12 @@ class BowlingGame
   end
 
   def score_strike
-    @total += 10 + @next_roll + @roll_after_next
-    @current_roll += 1
+    if @roll_after_next == nil
+      @current_roll += 2
+    else
+      @total += 10 + @next_roll + @roll_after_next
+      @current_roll += 1
+    end
   end
 
   def score_spare
