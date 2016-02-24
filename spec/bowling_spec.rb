@@ -117,9 +117,13 @@ describe 'Bowling Game' do
   describe '#score_spare' do
 
     it 'properly score spare' do
-      set_var "@roll_after_next", 4
-      subject.send(:score_spare)
+      set_var "@roll_after_next", 4; subject.send(:score_spare)
       expect(get_var "@total").to eq 14
+    end
+
+    it 'current roll is incremented by 2' do
+      set_var "@roll_after_next", 4; subject.send(:score_spare)
+      expect(get_var "@current_roll").to eq 2
     end
   end
 
