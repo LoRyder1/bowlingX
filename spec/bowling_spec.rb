@@ -31,12 +31,20 @@ describe 'Bowling Game' do
   end
 
   describe '#roll_valid?' do
-    
+    def set_var var, value
+      subject.instance_variable_set(var.to_sym, value)
+    end
+
     it 'roll is valid if less than total rolls' do
       roll_many 20,0
       expect(subject.roll_valid?).to eq true
     end
 
+    it 'roll is invalid if more than total rolls' do
+      set_var "@current_roll", 20
+      roll_many 20,0
+      expect(subject.roll_valid?).to eq false
+    end
   end
 
   describe 'complete games' do
