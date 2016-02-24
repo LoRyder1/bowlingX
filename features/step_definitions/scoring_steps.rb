@@ -20,3 +20,10 @@ When(/^I roll a game of one spare with a bonus (\d+)$/) do |bonus|
   @game.roll(bonus)
   roll_many(17,0)
 end
+
+When(/^I roll one strike with bonus (\d+) and (\d+)$/) do |bonus, bonus2|
+  @game.roll(10)
+  @game.roll(bonus)
+  @game.roll(bonus2)
+  roll_many(17,0)
+end
