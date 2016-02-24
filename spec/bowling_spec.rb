@@ -101,7 +101,7 @@ describe 'Bowling Game' do
 
   describe '#score_strike' do
 
-    it 'score = 10 + next_roll + roll_after_next' do
+    it 'properly score strike' do
       set_var "@roll_after_next", 9; set_var "@next_roll", 8
       subject.send(:score_strike)
       expect(get_var "@total").to eq 27
@@ -114,9 +114,14 @@ describe 'Bowling Game' do
     end
   end
 
-  # describe '#score_spare' do
+  describe '#score_spare' do
 
-  #   it ''
+    it 'properly score spare' do
+      set_var "@roll_after_next", 4
+      subject.send(:score_spare)
+      expect(get_var "@total").to eq 14
+    end
+  end
 
   describe 'complete games' do
 
