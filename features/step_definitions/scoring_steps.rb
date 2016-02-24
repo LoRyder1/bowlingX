@@ -17,6 +17,6 @@ end
 When(/^I roll a game of one spare with a bonus (\d+)$/) do |bonus|
   @game.roll(5)
   @game.roll(5)
-  @game.roll(3)
+  @game.roll(bonus)
   roll_many(17,0)
 end
