@@ -67,6 +67,19 @@ describe 'Bowling Game' do
     end
   end
 
+  describe '#strike?' do
+
+    it 'if roll is 10 = true' do
+      set_var "@roll", 10
+      expect(subject.send(:strike?)).to eq true
+    end
+
+    it 'if roll is not 10 = false' do
+      set_var "@roll", 9
+      expect(subject.send(:strike?)).to eq false
+    end
+  end
+
   describe 'complete games' do
 
     it 'a gutter game results in zero' do
