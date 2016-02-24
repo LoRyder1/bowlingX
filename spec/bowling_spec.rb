@@ -112,6 +112,11 @@ describe 'Bowling Game' do
       subject.send(:score_strike)
       expect(get_var "@current_roll").to eq 1
     end
+
+    it 'if roll_after_next is nil end of game' do
+      subject.send(:score_strike)
+      expect(get_var "@current_roll").to eq 2
+    end
   end
 
   describe '#score_spare' do
