@@ -43,12 +43,12 @@ describe 'Bowling Game' do
 
     it 'roll is valid if less than total rolls' do
       set_var "@current_roll", 1; set_var "@rolls", Array.new(20, 0)
-      expect(subject.roll_valid?).to eq true
+      expect(subject.send(:roll_valid?)).to eq true
     end
 
     it 'roll is invalid if more than total rolls' do
       set_var "@current_roll", 20; set_var "@rolls", Array.new(20, 0)
-      expect(subject.roll_valid?).to eq false
+      expect(subject.send(:roll_valid?)).to eq false
     end
   end
 
@@ -56,13 +56,13 @@ describe 'Bowling Game' do
 
     it 'sets roll being used now' do
       set_var "@current_roll", 2; set_var "@rolls", [7,8,9,11]
-      subject.set_rolls
+      subject.send(:set_rolls)
       expect(get_var("@roll")).to eq 9
     end
 
     it 'sets next_roll being used' do
       set_var "@current_roll", 2; set_var "@rolls", [7,8,9,11]
-      subject.set_rolls
+      subject.send(:set_rolls)
       expect(get_var("@next_roll")).to eq 11
     end
   end

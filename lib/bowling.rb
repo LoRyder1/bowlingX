@@ -17,6 +17,7 @@ class BowlingGame
     return @total
   end
 
+  private
   def roll_valid?
     @current_roll < @rolls.length - 1
   end
