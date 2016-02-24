@@ -86,6 +86,11 @@ describe 'Bowling Game' do
       set_var "@roll", 5; set_var "@next_roll", 5
       expect(subject.send(:spare?)).to eq true
     end
+
+    it 'if current and next roll is not 10 = false' do
+      set_var "@roll", 5; set_var "@next_roll", 4
+      expect(subject.send(:spare?)).to eq false
+    end
   end
 
   describe 'complete games' do
