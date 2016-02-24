@@ -24,7 +24,8 @@ class BowlingGame
 
   def set_rolls
     @roll = @rolls[@current_roll]
-    @next_roll = @rolls[@current_roll +1]
+    @next_roll = @rolls[@current_roll + 1]
+    @roll_after_next = @rolls[@current_roll + 2]
   end
 
   def score_frame
@@ -46,12 +47,12 @@ class BowlingGame
   end
 
   def score_strike
-    @total += 10 + @next_roll + @rolls[@current_roll + 2]
+    @total += 10 + @next_roll + @roll_after_next
     @current_roll += 1
   end
 
   def score_spare
-    @total += 10 + @rolls[@current_roll + 2]
+    @total += 10 + @roll_after_next
     @current_roll += 2
   end
 

@@ -96,7 +96,7 @@ describe 'Bowling Game' do
   describe '#score_strike' do
 
     it 'score = 10 + next_roll + roll_after_next' do
-      set_var "@rolls", [7,8,9]; set_var "@current_roll", 0
+      set_var "@roll_after_next", 9
       set_var "@next_roll", 8; subject.send(:score_strike)
       expect(get_var "@total").to eq 27
     end
