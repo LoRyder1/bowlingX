@@ -55,15 +55,21 @@ describe 'Bowling Game' do
   describe '#set_rolls' do
 
     it 'sets roll being used now' do
-      set_var "@current_roll", 2; set_var "@rolls", [7,8,9,11]
+      set_var "@current_roll", 1; set_var "@rolls", [7,8,9,11]
       subject.send(:set_rolls)
-      expect(get_var("@roll")).to eq 9
+      expect(get_var("@roll")).to eq 8
     end
 
     it 'sets next_roll being used' do
-      set_var "@current_roll", 2; set_var "@rolls", [7,8,9,11]
+      set_var "@current_roll", 1; set_var "@rolls", [7,8,9,11]
       subject.send(:set_rolls)
-      expect(get_var("@next_roll")).to eq 11
+      expect(get_var("@next_roll")).to eq 9
+    end
+
+    it 'sets roll_after_next being used' do
+      set_var "@current_roll", 1; set_var "@rolls", [7,8,9,11]
+      subject.send(:set_rolls)
+      expect(get_var("@roll_after_next")).to eq 11
     end
   end
 
@@ -96,8 +102,8 @@ describe 'Bowling Game' do
   describe '#score_strike' do
 
     it 'score = 10 + next_roll + roll_after_next' do
-      set_var "@roll_after_next", 9
-      set_var "@next_roll", 8; subject.send(:score_strike)
+      set_var "@roll_after_next", 9; set_var "@next_roll", 8
+      subject.send(:score_strike)
       expect(get_var "@total").to eq 27
     end
   end
