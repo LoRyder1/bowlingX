@@ -23,6 +23,20 @@ describe 'Bowling Game' do
     it 'takes one argument' do
       expect(subject.method(:roll).arity).to eq 1
     end
+
+    it 'pushs pins into array' do
+      subject.roll 2
+      expect(subject.rolls[0]).to eq 2
+    end
+  end
+
+  describe '#roll_valid?' do
+    
+    it 'roll is valid if less than total rolls' do
+      roll_many 20,0
+      expect(subject.roll_valid?).to eq true
+    end
+
   end
 
   describe 'complete games' do

@@ -1,4 +1,5 @@
 class BowlingGame
+  attr_reader :rolls
   def initialize
     @total = 0
     @rolls = []
@@ -10,23 +11,30 @@ class BowlingGame
   end
 
   def score
-    while @current_roll < @rolls.length - 1
+    while roll_valid?
       set_rolls
-
-      if strike?
-        score_strike
-      elsif spare?
-        score_spare
-      else
-        normal_score
-      end
+      score_frame
     end
     return @total
+  end
+
+  def roll_valid?
+    @current_roll < @rolls.length - 1
   end
 
   def set_rolls
     @roll = @rolls[@current_roll]
     @next_roll = @rolls[@current_roll +1]
+  end
+
+  def score_frame
+    if strike?
+      score_strike
+    elsif spare?
+      score_spare
+    else
+      normal_score
+    end
   end
 
   def strike?
