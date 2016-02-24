@@ -1,5 +1,4 @@
 class BowlingGame
-  attr_reader :rolls
   def initialize
     @total = 0
     @rolls = []

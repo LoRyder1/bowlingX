@@ -14,6 +14,14 @@ describe 'Bowling Game' do
     subject.roll 10
   end
 
+  def set_var var, value
+    subject.instance_variable_set(var.to_sym, value)
+  end  
+
+  def get_var var
+    subject.instance_variable_get(var.to_sym)
+  end
+
   describe '#roll' do
 
     it 'is a method defined in Bowling Game' do
@@ -26,23 +34,20 @@ describe 'Bowling Game' do
 
     it 'pushs pins into array' do
       subject.roll 2
-      expect(subject.rolls[0]).to eq 2
+      expect(get_var("@rolls")).to eq [2]
     end
   end
 
   describe '#roll_valid?' do
-    def set_var var, value
-      subject.instance_variable_set(var.to_sym, value)
-    end
 
     it 'roll is valid if less than total rolls' do
-      roll_many 20,0
+      set_var "@rolls", Array.new(20, 0)
       expect(subject.roll_valid?).to eq true
     end
 
     it 'roll is invalid if more than total rolls' do
       set_var "@current_roll", 20
-      roll_many 20,0
+      set_var "@rolls", Array.new(20, 0)
       expect(subject.roll_valid?).to eq false
     end
   end
